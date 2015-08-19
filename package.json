@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ahaasler/hexo-multilingual",
   "devDependencies": {
+    "coveralls": "^2.11.4",
     "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-jshint": "^1.11.2",
