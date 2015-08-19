@@ -1,0 +1,33 @@
+{
+  "name": "hexo-multilingual",
+  "version": "0.1.0",
+  "description": "Multilingual base module and utilities for Hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahaasler/hexo-multilingual.git"
+  },
+  "keywords": [
+    "hexo",
+    "multilingual"
+  ],
+  "author": "Adrian Haasler García <dev@adrianhaasler.com> (http://www.adrianhaasler.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahaasler/hexo-multilingual/issues"
+  },
+  "homepage": "https://github.com/ahaasler/hexo-multilingual",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-mocha": "^2.1.3",
+    "jshint-stylish": "^2.0.1",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.4.2"
+  }
+}

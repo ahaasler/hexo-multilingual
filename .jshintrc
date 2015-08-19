@@ -1,0 +1,14 @@
+{
+  "eqnull": true,
+  "expr": true,
+  "node": true,
+  "trailing": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": "vars",
+  "strict": true,
+  "globals": {
+    "Promise": true
+  }
+}
+
