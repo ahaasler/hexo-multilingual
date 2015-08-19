@@ -13,6 +13,7 @@ deploy:
   email: dev@adrianhaasler.com
   api_key:
     secure: ty3ZDrNv+fyWHvYGr2IEwzkd3kAHIFwypLKCZGi/9BsgEeSXAEwGgyK/s/rTehV/fe7oYaTrrgmu5I5OMjOrpb3N69VVkSaGMQzFDRhITC+KNEZ3QPRnvAiUjE7DLlqTh3WoiR+n1drCFGPwnPzgrNLfxEeAQhI7NiztCp/HoI5nPDj6udv8lDYTRdoe0j4+apdb+mAl2E5kgSmCTUPRuRkD3UI29JnFV3xazuaoFbirjtfheKfdLxSuqiMTX9AXUhkcoWbhjFUddjBb+21ZfJEFhvM8NcLnDkR3qz3XFWgCBgZkOlilEHNp1LOldm/1wJ/q0KiFUPi0VU+Lp9a+3FbZVp78PlqGrGi2kCP8gFkwPmLhKvPDPiTQMMi+jAYji40cgLzTVQ9mut+RDRq7PE4NDVuIRHxWvErmWEB/6QJpMeeZ2MpodyUzavppYldFXjLN7Fi6N6rccaTTHBc5dtzTWR1GYr6BCfHv4RVaaxhJ1xpvTupJonfg+nMUT65rceATZahAoMG3FyCNLLQMWqKpDsFWvPIQgKEWDip+/OyJ1t+e6N+bGQRN+JZ+DhRtw9LAc29500zNjjW3ua7S8jqDoNY7vxEGutVC/G1JDUXo98FeuaB2eXbsR9a6krXgvHTo8qnHDWvawTkVr+9cV6Y4YziEdBF1shBBIau0G9Y=
+  skip_cleanup: true
   on:
     tags: true
     repo: ahaasler/hexo-multilingual
