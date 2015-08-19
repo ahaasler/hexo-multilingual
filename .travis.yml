@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '0.10'
+- '0.11'
+- '0.12'
+- iojs
+script:
+- npm test
+after_script:
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+deploy:
+  provider: npm
+  email: dev@adrianhaasler.com
+  api_key:
+    secure: qWXcFLUeaWCDcJkTLgYEi9ADq2B5f4bSoRTcIhKAduArKBKrPH584UVI4YlB1OjyiOkfBnZLp5ony/GKJz9GsjQyaao2KS3TjW8FmMXiSrDCeuJI0cIM+Db5J3/7NFaQjnn5iK9tVwiSnarDTb9nIYd7m/UzPfORHNFWxwtWX+IPEPIQcEBnSpPccUk8RVk3YnC9KSo2klz7aK5PC0vME+ReUdJPyEF3HSB9AYdr6ZA3hZoeSuU7CMHWylKKlrvXRjzEKH5EWqmC8F7SXKLiXV6Ari0BIB3GDM05YtG3mwHMRrJS3zCi5E5oyTswj29ajxX5QNzH1WrbFd3LyOvrzcnDvj8NdXtYKvrUZ1kQWsxj4B+u+eiq0DCYTBrSrjDGHe14hv599dho6oCQsv0Vsz3IfNTEncCRE10FB7kGxtI3hsLI4JsM5Q1DNWIfoUvsbtkOcdXRX8eE1o+hEGY1npQSGxZLTkpCgahQx9Wy8oc4cB1NEdzEZAI/5vrGFLrBWd36OKMDB0NJ+T3tYG0VUA+5XpwpD/xGLl1KpZguBtz0FFXkdAb8bkefn7vZuejBuYMh/CGO+GInjOxbR8pGM1pOm0alzebgjzwXHuSmOyaFeLxuvUgMA26sH5AjnRyC/nTaK9s59+iJhpebJo1lJiCG+2/mdY+yHvSpkjQiOk4=
+  on:
+    tags: true
+    repo: ahaasler/hexo-multilingual
