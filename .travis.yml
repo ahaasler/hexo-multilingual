@@ -16,3 +16,4 @@ deploy:
   on:
     tags: true
     repo: ahaasler/hexo-multilingual
+    node: '0.12'
