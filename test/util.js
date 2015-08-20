@@ -27,6 +27,10 @@ describe('util', function() {
 	}
 
 	before(function() {
+		hexo.locals.data = {};
+	})
+
+	before(function() {
 		return fs.mkdirs(baseDir).then(function() {
 			return hexo.init();
 		});
@@ -43,7 +47,7 @@ describe('util', function() {
 			content: new Buffer('description: English description')
 		});
 		return process(file).then(function() {
-			hexo.locals.data = Data.data;
+			hexo.locals.data.config_en = Data.findById('config_en').data;
 			util._c('description', 'en', hexo.config, hexo.locals).should.eql('English description');
 			return Data.findById('config_en').remove();
 		});
@@ -56,7 +60,7 @@ describe('util', function() {
 			content: new Buffer('description: Descripción en español')
 		});
 		return process(file).then(function() {
-			hexo.locals.data = Data.data;
+			hexo.locals.data.config_es = Data.findById('config_es').data;
 			util._c('description', 'es', hexo.config, hexo.locals).should.eql('Descripción en español');
 			return Data.findById('config_es').remove();
 		});
