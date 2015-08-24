@@ -38,12 +38,16 @@ gulp.task('watch', function(){
 
 gulp.task('test', ['mocha', 'jshint']);
 
+gulp.task('git-show', shell.task([
+	'git show -1'
+]));
+
 gulp.task('git-push', shell.task([
 	'git push',
 	'git push --tags'
 ]));
 
-gulp.task('git-push:confirm', function(done) {
+gulp.task('git-push:confirm', ['git-show'], function(done) {
 	inquirer.prompt([{
 		type: 'confirm',
 		message: 'Push version?',
