@@ -27,12 +27,18 @@ describe('util', function() {
 	}
 
 	before(function() {
-		hexo.locals.data = {};
-	})
-
-	before(function() {
 		return fs.mkdirs(baseDir).then(function() {
-			return hexo.init();
+			hexo.init();
+			process(newFile({
+				path: 'config_en.yml',
+				type: 'create',
+				content: new Buffer('description: English description')
+			}));
+			process(newFile({
+				path: 'config_es.yml',
+				type: 'create',
+				content: new Buffer('description: Descripción en español')
+			}));
 		});
 	});
 
@@ -41,28 +47,10 @@ describe('util', function() {
 	});
 
 	it('config: simple - english - yaml', function() {
-		var file = newFile({
-			path: 'config_en.yml',
-			type: 'create',
-			content: new Buffer('description: English description')
-		});
-		return process(file).then(function() {
-			hexo.locals.data.config_en = Data.findById('config_en').data;
-			util._c('description', 'en', hexo.config, hexo.locals).should.eql('English description');
-			return Data.findById('config_en').remove();
-		});
+		util._c('description', 'en', hexo.config, hexo.locals.toObject()).should.eql('English description');
 	});
-	
+
 	it('config: simple - español - yaml', function() {
-		var file = newFile({
-			path: 'config_es.yml',
-			type: 'create',
-			content: new Buffer('description: Descripción en español')
-		});
-		return process(file).then(function() {
-			hexo.locals.data.config_es = Data.findById('config_es').data;
-			util._c('description', 'es', hexo.config, hexo.locals).should.eql('Descripción en español');
-			return Data.findById('config_es').remove();
-		});
+		util._c('description', 'es', hexo.config, hexo.locals.toObject()).should.eql('Descripción en español');
 	});
 });
