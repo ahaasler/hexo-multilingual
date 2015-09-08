@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/ahaasler/hexo-multilingual",
   "devDependencies": {
-    "bluebird": "^2.9.34",
     "chai": "^3.2.0",
     "coveralls": "^2.11.4",
     "gulp": "^3.9.0",
