@@ -52,4 +52,19 @@ describe('util', function() {
 	it('config: simple - español - yaml', function() {
 		util._c('description', 'es', hexo.config, hexo.locals.toObject()).should.eql('Descripción en español');
 	});
+
+	it('config: simple - default - yaml', function() {
+		util._c('title', 'en', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
+		util._c('title', 'es', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
+	});
+
+	it('config: simple - unknown language - yaml', function() {
+		util._c('title', 'fr', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
+	});
+
+	it('config: complex - unknown config value - yaml', function() {
+		should.not.exist(util._c('does.not.exist', 'en', hexo.config, hexo.locals.toObject()));
+		should.not.exist(util._c('does.not.exist', 'es', hexo.config, hexo.locals.toObject()));
+		should.not.exist(util._c('does.not.exist', 'fr', hexo.config, hexo.locals.toObject()));
+	});
 });
