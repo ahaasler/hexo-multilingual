@@ -44,6 +44,28 @@ hexo.extend.generator.register('test', function(locals) {
 });
 ```
 
+Helpers
+-------
+
+#### `_c`: Configuration locales
+
+This is the same as the `_c` function in util, but accessible from the theme
+layouts.
+
+#### Parameters
+
+- `value`: the desired configuration value to be retrieved.
+
+#### Usage
+
+Example in a layout:
+
+```html
+<div id="footer-description">
+	<p>{{ _c('description') }}</p>
+</div>
+```
+
 License
 -------
 
