@@ -39,8 +39,10 @@ site, in files named like `config_<lang>.yml`.
 Example for a generator:
 
 ```javascript
+var _c = require('hexo-multilingual').util._c;
 hexo.extend.generator.register('test', function(locals) {
 	var description = _c('description', 'en', this.config, locals);
+	// Generator code
 });
 ```
 
