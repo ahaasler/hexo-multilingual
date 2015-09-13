@@ -5,4 +5,7 @@ describe('Multilingual', function() {
 	describe('helper', function() {
 		require('./helper');
 	});
+	describe('generator', function() {
+		require('./generator')
+	});
 });
