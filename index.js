@@ -2,7 +2,9 @@
 
 exports.util = require('./lib/util');
 
-// Helpers
 if (typeof hexo !== 'undefined') {
+	// Generators
+	require('./lib/generator')(hexo);
+	// Helpers
 	require('./lib/helper')(hexo);
 }
