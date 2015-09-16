@@ -98,4 +98,61 @@ describe('post', function() {
 			return post.remove();
 		});
 	});
+
+	it('multilingual prev/next', function() {
+		return Post.insert([{
+			source: 'one',
+			slug: 'one',
+			date: 1e8,
+			label: 'post-one',
+			lang: 'en'
+		}, {
+			source: 'uno',
+			slug: 'uno',
+			date: 1e8,
+			label: 'post-one',
+			lang: 'es'
+		}, {
+			source: 'two',
+			slug: 'two',
+			date: 1e8 + 1,
+			label: 'post-two',
+			lang: 'en'
+		}, {
+			source: 'dos',
+			slug: 'dos',
+			date: 1e8 + 1,
+			label: 'post-two',
+			lang: 'es'
+		}]).then(function(posts) {
+			return generator(locals()).then(function(data) {
+				// Post two
+				data[0].data.source.should.eql('two');
+				data[0].data.lang.should.eql('en');
+				should.not.exist(data[0].data.prev);
+				data[0].data.next.source.should.eql('one');
+				data[0].data.next.lang.should.eql('en');
+				// Post dos
+				data[1].data.source.should.eql('dos');
+				data[1].data.lang.should.eql('es');
+				should.not.exist(data[1].data.prev);
+				data[1].data.next.source.should.eql('uno');
+				data[1].data.next.lang.should.eql('es');
+				// Post one
+				data[2].data.source.should.eql('one');
+				data[2].data.lang.should.eql('en');
+				data[2].data.prev.source.should.eql('two');
+				data[2].data.prev.lang.should.eql('en');
+				should.not.exist(data[2].data.next);
+				// Post uno
+				data[3].data.source.should.eql('uno');
+				data[3].data.lang.should.eql('es');
+				data[3].data.prev.source.should.eql('dos');
+				data[3].data.prev.lang.should.eql('es');
+				should.not.exist(data[3].data.next);
+			}).thenReturn(posts);
+		}).map(function(post) {
+			return post.remove();
+		});
+	});
 });
