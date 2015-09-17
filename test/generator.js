@@ -155,4 +155,81 @@ describe('post', function() {
 			return post.remove();
 		});
 	});
+
+	it('multilingual alternates', function() {
+		return Post.insert([{
+			title: 'one',
+			source: 'one',
+			slug: 'one',
+			date: 1e8,
+			label: 'post-one',
+			lang: 'en'
+		}, {
+			title: 'uno',
+			source: 'uno',
+			slug: 'uno',
+			date: 1e8,
+			label: 'post-one',
+			lang: 'es'
+		}, {
+			title: 'two',
+			source: 'two',
+			slug: 'two',
+			date: 1e8 + 1,
+			label: 'post-two',
+			lang: 'en'
+		}, {
+			title: 'dos',
+			source: 'dos',
+			slug: 'dos',
+			date: 1e8 + 1,
+			label: 'post-two',
+			lang: 'es'
+		}]).then(function(posts) {
+			return generator(locals()).then(function(data) {
+				// Post two
+				data[0].data.source.should.eql('two');
+				data[0].data.lang.should.eql('en');
+				data[0].data.alternates.length.should.eql(2);
+				data[0].data.alternates[0].title.should.eql('two');
+				data[0].data.alternates[0].lang.should.eql('en');
+				data[0].data.alternates[0].path.should.eql('two/');
+				data[0].data.alternates[1].title.should.eql('dos');
+				data[0].data.alternates[1].lang.should.eql('es');
+				data[0].data.alternates[1].path.should.eql('dos/');
+				// Post dos
+				data[1].data.source.should.eql('dos');
+				data[1].data.lang.should.eql('es');
+				data[1].data.alternates.length.should.eql(2);
+				data[1].data.alternates[0].title.should.eql('two');
+				data[1].data.alternates[0].lang.should.eql('en');
+				data[1].data.alternates[0].path.should.eql('two/');
+				data[1].data.alternates[1].title.should.eql('dos');
+				data[1].data.alternates[1].lang.should.eql('es');
+				data[1].data.alternates[1].path.should.eql('dos/');
+				// Post one
+				data[2].data.source.should.eql('one');
+				data[2].data.lang.should.eql('en');
+				data[2].data.alternates.length.should.eql(2);
+				data[2].data.alternates[0].title.should.eql('one');
+				data[2].data.alternates[0].lang.should.eql('en');
+				data[2].data.alternates[0].path.should.eql('one/');
+				data[2].data.alternates[1].title.should.eql('uno');
+				data[2].data.alternates[1].lang.should.eql('es');
+				data[2].data.alternates[1].path.should.eql('uno/');
+				// Post uno
+				data[3].data.source.should.eql('uno');
+				data[3].data.lang.should.eql('es');
+				data[3].data.alternates.length.should.eql(2);
+				data[3].data.alternates[0].title.should.eql('one');
+				data[3].data.alternates[0].lang.should.eql('en');
+				data[3].data.alternates[0].path.should.eql('one/');
+				data[3].data.alternates[1].title.should.eql('uno');
+				data[3].data.alternates[1].lang.should.eql('es');
+				data[3].data.alternates[1].path.should.eql('uno/');
+			}).thenReturn(posts);
+		}).map(function(post) {
+			return post.remove();
+		});
+	});
 });
