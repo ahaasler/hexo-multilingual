@@ -16,6 +16,22 @@ Installation
 npm install hexo-multilingual --save
 ```
 
+Generators
+----------
+
+### Post
+
+Overrides the default post generator in Hexo. Links the same post across
+multiple languages.
+
+#### Usage
+
+Posts should specify:
+
+- `lang`: post language.
+- `label`: post identifier across languages. Posts with the same `label` are
+considered the same post in different languages.
+
 Functions
 ---------
 
