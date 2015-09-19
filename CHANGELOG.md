@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v0.3.0
+------
+
+***September 19, 2015***
+
+- Add multilinugual post generator: [\#4](https://github.com/ahaasler/hexo-multilingual/issues/4 "Add post generator")
+
 v0.2.0
 ------
 
