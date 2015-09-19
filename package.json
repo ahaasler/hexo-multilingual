@@ -1,6 +1,6 @@
 {
   "name": "hexo-multilingual",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Multilingual base module and utilities for Hexo",
   "main": "index.js",
   "scripts": {
