@@ -4,8 +4,6 @@ node_js:
 - '0.11'
 - '0.12'
 - iojs
-install:
-- npm install -g codeclimate-test-reporter
 script:
 - npm test
 after_script:

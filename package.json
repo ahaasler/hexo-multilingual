@@ -25,6 +25,7 @@
   "devDependencies": {
     "bluebird": "^2.10.1",
     "chai": "^3.3.0",
+    "codeclimate-test-reporter": "^0.1.1",
     "coveralls": "^2.11.4",
     "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
