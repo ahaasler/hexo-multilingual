@@ -3,7 +3,7 @@
   "expr": true,
   "node": true,
   "trailing": true,
-  "quotmark": "single",
+  "quotmark": "double",
   "undef": true,
   "unused": "vars",
   "strict": true,
