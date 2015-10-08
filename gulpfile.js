@@ -31,12 +31,19 @@ gulp.task("jshint", function(){
 		.pipe($.jshint.reporter("fail"));
 });
 
+gulp.task('eslint', function () {
+	return gulp.src(lib)
+		.pipe($.eslint())
+		.pipe($.eslint.format())
+		.pipe($.eslint.failOnError());
+});
+
 gulp.task("watch", function(){
 	gulp.watch(lib, ["mocha", "jshint"]);
 	gulp.watch(["test/index.js"], ["mocha"]);
 });
 
-gulp.task("test", ["mocha", "jshint"]);
+gulp.task("test", ["mocha", "jshint", "eslint"]);
 
 gulp.task("git-show", shell.task([
 	"git show -1"
