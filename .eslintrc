@@ -1,3 +1,6 @@
 {
-    "extends": "eslint:recommended"
+  "extends": "airbnb/legacy",
+  "rules": {
+    "strict": [2, "global"]
+  }
 }

@@ -27,6 +27,7 @@
     "chai": "^3.3.0",
     "codeclimate-test-reporter": "^0.1.1",
     "coveralls": "^2.11.4",
+    "eslint-config-airbnb": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.0",
