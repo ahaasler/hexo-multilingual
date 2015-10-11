@@ -58,8 +58,8 @@ Example for a generator:
 ```javascript
 var _c = require('hexo-multilingual').util._c;
 hexo.extend.generator.register('test', function(locals) {
-	var description = _c('description', 'en', this.config, locals);
-	// Generator code
+  var description = _c('description', 'en', this.config, locals);
+  // Generator code
 });
 ```
 
@@ -81,7 +81,7 @@ Example in a layout:
 
 ```html
 <div id="footer-description">
-	<p>{{ _c('description') }}</p>
+  <p>{{ _c('description') }}</p>
 </div>
 ```
 

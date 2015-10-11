@@ -7,65 +7,65 @@ var rirmaf = require('rimraf');
 var lib = 'lib/**/*.js';
 
 gulp.task('coverage', function(){
-	return gulp.src(lib)
-		.pipe($.istanbul())
-		.pipe($.istanbul.hookRequire());
+  return gulp.src(lib)
+    .pipe($.istanbul())
+    .pipe($.istanbul.hookRequire());
 });
 
 gulp.task('coverage:clean', function(callback){
-	rirmaf('coverage', callback);
+  rirmaf('coverage', callback);
 });
 
 gulp.task('mocha', ['coverage'], function(){
-	return gulp.src('test/index.js')
-		.pipe($.mocha({
-			reporter: 'spec'
-		}))
-		.pipe($.istanbul.writeReports());
+  return gulp.src('test/index.js')
+    .pipe($.mocha({
+      reporter: 'spec'
+    }))
+    .pipe($.istanbul.writeReports());
 });
 
 gulp.task('jshint', function(){
-	return gulp.src(lib)
-		.pipe($.jshint())
-		.pipe($.jshint.reporter('jshint-stylish'))
-		.pipe($.jshint.reporter('fail'));
+  return gulp.src(lib)
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.jshint.reporter('fail'));
 });
 
 gulp.task('eslint', function () {
-	return gulp.src(lib)
-		.pipe($.eslint())
-		.pipe($.eslint.format())
-		.pipe($.eslint.failOnError());
+  return gulp.src(lib)
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.eslint.failOnError());
 });
 
 gulp.task('watch', function(){
-	gulp.watch(lib, ['mocha', 'jshint']);
-	gulp.watch(['test/index.js'], ['mocha']);
+  gulp.watch(lib, ['mocha', 'jshint']);
+  gulp.watch(['test/index.js'], ['mocha']);
 });
 
 gulp.task('test', ['mocha', 'jshint', 'eslint']);
 
 gulp.task('git-show', shell.task([
-	'git show -1'
+  'git show -1'
 ]));
 
 gulp.task('git-push', shell.task([
-	'git push',
-	'git push --tags'
+  'git push',
+  'git push --tags'
 ]));
 
 gulp.task('git-push:confirm', ['git-show'], function(done) {
-	inquirer.prompt([{
-		type: 'confirm',
-		message: 'Push version?',
-		default: false,
-		name: 'push'
-	}], function(answers) {
-		if(answers.push) {
-			gulp.start('git-push');
-		}
-		done();
-	});
+  inquirer.prompt([{
+    type: 'confirm',
+    message: 'Push version?',
+    default: false,
+    name: 'push'
+  }], function(answers) {
+    if(answers.push) {
+      gulp.start('git-push');
+    }
+    done();
+  });
 });
 
 gulp.task('release', ['git-push:confirm']);
