@@ -1,6 +1,7 @@
 {
   "extends": "airbnb/legacy",
   "rules": {
-    "strict": [2, "global"]
+    "strict": [2, "global"],
+    "id-length": [2, {"exceptions": ["i", "j"]}]
   }
 }
