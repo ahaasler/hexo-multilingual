@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-exports.util = require("./lib/util");
+exports.util = require('./lib/util');
 
-if (typeof hexo !== "undefined") {
+if (typeof hexo !== 'undefined') {
 	// Generators
-	require("./lib/generator")(hexo);
+	require('./lib/generator')(hexo);
 	// Helpers
-	require("./lib/helper")(hexo);
+	require('./lib/helper')(hexo);
 }
