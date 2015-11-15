@@ -26,17 +26,21 @@ describe('util', function() {
   }
 
   before(function() {
+    hexo.config.complex = {
+      first: 'default',
+      second: 'should be overriden'
+    }
     return fs.mkdirs(baseDir).then(function() {
       hexo.init();
       process(newFile({
         path: 'config_en.yml',
         type: 'create',
-        content: new Buffer('description: English description')
+        content: new Buffer('description: English description\ncomplex:\n  second: english\n  third: new value')
       }));
       process(newFile({
         path: 'config_es.yml',
         type: 'create',
-        content: new Buffer('description: Descripción en español')
+        content: new Buffer('description: Descripción en español\ncomplex:\n  second: español\n  third: nuevo valor')
       }));
     });
   });
@@ -45,26 +49,53 @@ describe('util', function() {
     return fs.rmdir(baseDir);
   });
 
-  it('config: simple - english - yaml', function() {
+  it('_c: simple - english - yaml', function() {
     util._c('description', 'en', hexo.config, hexo.locals.toObject()).should.eql('English description');
   });
 
-  it('config: simple - español - yaml', function() {
+  it('_c: simple - español - yaml', function() {
     util._c('description', 'es', hexo.config, hexo.locals.toObject()).should.eql('Descripción en español');
   });
 
-  it('config: simple - default - yaml', function() {
+  it('_c: simple - default - yaml', function() {
     util._c('title', 'en', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
     util._c('title', 'es', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
   });
 
-  it('config: simple - unknown language - yaml', function() {
+  it('_c: simple - unknown language - yaml', function() {
     util._c('title', 'fr', hexo.config, hexo.locals.toObject()).should.eql('Hexo');
   });
 
-  it('config: complex - unknown config value - yaml', function() {
+  it('_c: complex - unknown config value - yaml', function() {
     should.not.exist(util._c('does.not.exist', 'en', hexo.config, hexo.locals.toObject()));
     should.not.exist(util._c('does.not.exist', 'es', hexo.config, hexo.locals.toObject()));
     should.not.exist(util._c('does.not.exist', 'fr', hexo.config, hexo.locals.toObject()));
+  });
+
+  it('configuration: english - yaml', function() {
+    var enConfig = util.configuration('en', hexo.config, hexo.locals.toObject());
+    enConfig.title.should.eql('Hexo');
+    enConfig.description.should.eql('English description');
+    enConfig.complex.first.should.eql('default');
+    enConfig.complex.second.should.eql('english');
+    enConfig.complex.third.should.eql('new value');
+  });
+
+  it('configuration: english - yaml', function() {
+    var esConfig = util.configuration('es', hexo.config, hexo.locals.toObject());
+    esConfig.title.should.eql('Hexo');
+    esConfig.description.should.eql('Descripción en español');
+    esConfig.complex.first.should.eql('default');
+    esConfig.complex.second.should.eql('español');
+    esConfig.complex.third.should.eql('nuevo valor');
+  });
+
+  it('configuration: unknown language - yaml', function() {
+    var frConfig = util.configuration('fr', hexo.config, hexo.locals.toObject());
+    frConfig.title.should.eql('Hexo');
+    frConfig.description.should.eql('');
+    frConfig.complex.first.should.eql('default');
+    frConfig.complex.second.should.eql('should be overriden');
+    should.not.exist(frConfig.complex.third);
   });
 });

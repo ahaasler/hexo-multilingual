@@ -42,5 +42,8 @@
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
     "rimraf": "^2.4.3"
+  },
+  "dependencies": {
+    "deepmerge": "^0.2.10"
   }
 }
