@@ -2,6 +2,9 @@
 
 describe('Multilingual', function() {
   require('./util');
+  describe('filter', function() {
+    require('./filter');
+  });
   describe('helper', function() {
     require('./helper');
   });
