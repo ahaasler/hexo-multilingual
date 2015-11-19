@@ -27,6 +27,7 @@
     "chai": "^3.3.0",
     "codeclimate-test-reporter": "^0.1.1",
     "coveralls": "^2.11.4",
+    "deepmerge": "^0.2.10",
     "eslint-config-airbnb": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
@@ -42,8 +43,5 @@
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
     "rimraf": "^2.4.3"
-  },
-  "dependencies": {
-    "deepmerge": "^0.2.10"
   }
 }
