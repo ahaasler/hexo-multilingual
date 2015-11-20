@@ -31,7 +31,7 @@ The translations should be located in the `source/_data` folder of the Hexo
 site, in files named like `config_<lang>.yml`. These files are similar to the
 default Hexo configuration file.
 
-```
+```yaml
 # Site
 title: Título
 subtitle: Subtítulo
