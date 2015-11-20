@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v0.4.0
+------
+
+***November 20, 2015***
+
+- Add localized configuration filter and function: [\#9](https://github.com/ahaasler/hexo-multilingual/issues/9 "Themes should not implement anything new")
+
 v0.3.0
 ------
 
