@@ -14,7 +14,38 @@ Installation
 ------------
 
 ``` bash
-npm install hexo-multilingual --save
+npm install hexo-multilingual deepmerge --save
+```
+
+> *deepmerge* is necessary because the Hexo site is what executes the filter,
+not this plugin.
+
+Configuration
+-------------
+
+### Localization
+
+This plugin can localize configuration values for all languages of the site.
+
+The translations should be located in the `source/_data` folder of the Hexo
+site, in files named like `config_<lang>.yml`. These files are similar to the
+default Hexo configuration file.
+
+```
+# Site
+title: Título
+subtitle: Subtítulo
+description: Descripción
+
+# Pagination
+pagination_dir: pagina
+
+# Date / time format
+post_date_format: D [de] MMMM [del] YYYY
+
+# Directory
+archive_dir: archivo
+category_dir: categoria
 ```
 
 Generators
@@ -33,6 +64,17 @@ Posts should specify:
 - `label`: post identifier across languages. Posts with the same `label` are
 considered the same post in different languages.
 
+Filters
+-------
+
+### Configuration
+
+Replaces the configuration in each page with the appropriate localized
+configuration values.
+
+This allows to use themes without the need to implement `_c` in the theme as
+helper.
+
 Functions
 ---------
 
@@ -40,9 +82,6 @@ Functions
 
 This function returns localized configuration values, or the default one if the
 translation is not defined.
-
-This translations should be located in the `source/_data` folder of the Hexo
-site, in files named like `config_<lang>.yml`.
 
 #### Parameters
 
