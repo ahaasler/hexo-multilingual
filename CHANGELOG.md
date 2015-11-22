@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.4.1
+------
+
+- Store default configuration in `config.default`: [\#10](https://github.com/ahaasler/hexo-multilingual/issues/10 "Default configuration may be useful")
+
 v0.4.0
 ------
 
