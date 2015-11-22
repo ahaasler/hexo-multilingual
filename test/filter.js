@@ -73,6 +73,12 @@ describe('configuration', function() {
     localizedLocals.config.complex.first.should.eql('default');
     localizedLocals.config.complex.second.should.eql('english');
     localizedLocals.config.complex.third.should.eql('new value');
+    // Default config
+    localizedLocals.config.default.title.should.eql('Hexo');
+    localizedLocals.config.default.description.should.eql('');
+    localizedLocals.config.default.complex.first.should.eql('default');
+    localizedLocals.config.default.complex.second.should.eql('should be overriden');
+    should.not.exist(localizedLocals.config.default.complex.third);
   });
 
   it('español - yaml', function() {
@@ -86,6 +92,12 @@ describe('configuration', function() {
     localizedLocals.config.complex.first.should.eql('default');
     localizedLocals.config.complex.second.should.eql('español');
     localizedLocals.config.complex.third.should.eql('nuevo valor');
+    // Default config
+    localizedLocals.config.default.title.should.eql('Hexo');
+    localizedLocals.config.default.description.should.eql('');
+    localizedLocals.config.default.complex.first.should.eql('default');
+    localizedLocals.config.default.complex.second.should.eql('should be overriden');
+    should.not.exist(localizedLocals.config.default.complex.third);
   });
 
   it('unknown language - yaml', function() {
@@ -99,5 +111,11 @@ describe('configuration', function() {
     localizedLocals.config.complex.first.should.eql('default');
     localizedLocals.config.complex.second.should.eql('should be overriden');
     should.not.exist(localizedLocals.config.complex.third);
+    // Default config
+    localizedLocals.config.default.title.should.eql('Hexo');
+    localizedLocals.config.default.description.should.eql('');
+    localizedLocals.config.default.complex.first.should.eql('default');
+    localizedLocals.config.default.complex.second.should.eql('should be overriden');
+    should.not.exist(localizedLocals.config.default.complex.third);
   });
 });
