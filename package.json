@@ -27,7 +27,6 @@
     "chai": "^3.4.1",
     "codeclimate-test-reporter": "^0.1.1",
     "coveralls": "^2.11.4",
-    "deepmerge": "^0.2.10",
     "eslint-config-airbnb": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.1.0",
@@ -40,8 +39,11 @@
     "hexo-fs": "^0.1.5",
     "inquirer": "^0.11.0",
     "jshint-stylish": "^2.1.0",
-    "lodash": "^3.10.1",
     "mocha": "^2.3.4",
     "rimraf": "^2.4.4"
+  },
+  "dependencies": {
+    "deepmerge": "^0.2.10",
+    "lodash": "^3.10.1"
   }
 }
