@@ -4,10 +4,14 @@ Changelog
 v0.4.2
 ------
 
+***November 25, 2015***
+
 - Fix missing dependencies: [\#11](https://github.com/ahaasler/hexo-multilingual/issues/11 "Fix deepmerge missing")
 
 v0.4.1
 ------
+
+***November 22, 2015***
 
 - Store default configuration in `config.default`: [\#10](https://github.com/ahaasler/hexo-multilingual/issues/10 "Default configuration may be useful")
 
