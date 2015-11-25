@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.4.2
+------
+
+- Fix missing dependencies: [\#11](https://github.com/ahaasler/hexo-multilingual/issues/11 "Fix deepmerge missing")
+
 v0.4.1
 ------
 
