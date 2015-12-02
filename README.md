@@ -3,7 +3,8 @@ hexo-multilingual
 
 [![Build Status](https://travis-ci.org/ahaasler/hexo-multilingual.svg?branch=master)](https://travis-ci.org/ahaasler/hexo-multilingual)
 [![NPM version](https://badge.fury.io/js/hexo-multilingual.svg)](http://badge.fury.io/js/hexo-multilingual)
-[![Dependency Status](https://gemnasium.com/ahaasler/hexo-multilingual.svg)](https://gemnasium.com/ahaasler/hexo-multilingual)
+[![Dependencies](https://www.bithound.io/github/ahaasler/hexo-multilingual/badges/dependencies.svg)](https://www.bithound.io/github/ahaasler/hexo-multilingual/master/dependencies/npm)
+[![Dev Dependencies](https://www.bithound.io/github/ahaasler/hexo-multilingual/badges/devDependencies.svg)](https://www.bithound.io/github/ahaasler/hexo-multilingual/master/dependencies/npm)
 [![License](https://img.shields.io/github/license/ahaasler/hexo-multilingual.svg)](LICENSE)
 [![Gitter Chat](https://img.shields.io/gitter/room/ahaasler/hexo-multilingual.svg)](https://gitter.im/ahaasler/hexo-multilingual)
 
