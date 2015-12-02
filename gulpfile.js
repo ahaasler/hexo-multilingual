@@ -1,10 +1,18 @@
 var gulp = require('gulp');
-var shell = require('gulp-shell');
+var child_process = require('child_process');
 var inquirer = require('inquirer');
 var $ = require('gulp-load-plugins')();
 var rirmaf = require('rimraf');
 
 var lib = 'lib/**/*.js';
+
+function exec(command, cb) {
+  child_process.exec(command, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+};
 
 gulp.task('coverage', function(){
   return gulp.src(lib)
@@ -45,14 +53,13 @@ gulp.task('watch', function(){
 
 gulp.task('test', ['mocha', 'jshint', 'eslint']);
 
-gulp.task('git-show', shell.task([
-  'git show -1'
-]));
+gulp.task('git-show', function (cb) {
+  exec('git show -1', cb);
+});
 
-gulp.task('git-push', shell.task([
-  'git push',
-  'git push --tags'
-]));
+gulp.task('git-push', function (cb) {
+  exec('git push & git push --tags', cb);
+});
 
 gulp.task('git-push:confirm', ['git-show'], function(done) {
   inquirer.prompt([{
