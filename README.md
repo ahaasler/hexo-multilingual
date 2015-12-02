@@ -7,6 +7,7 @@ hexo-multilingual
 [![Test Coverage](https://codeclimate.com/github/ahaasler/hexo-multilingual/badges/coverage.svg)](https://codeclimate.com/github/ahaasler/hexo-multilingual/coverage)
 [![Dependency Status](https://gemnasium.com/ahaasler/hexo-multilingual.svg)](https://gemnasium.com/ahaasler/hexo-multilingual)
 [![License](https://img.shields.io/github/license/ahaasler/hexo-multilingual.svg)](LICENSE)
+[![Gitter Chat](https://img.shields.io/gitter/room/ahaasler/hexo-multilingual.svg)](https://gitter.im/ahaasler/hexo-multilingual)
 
 Multilingual base module and utilities for [Hexo](http://hexo.io/).
 
