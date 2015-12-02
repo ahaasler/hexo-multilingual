@@ -8,7 +8,6 @@ script:
 - npm test
 after_script:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-- codeclimate-test-reporter < ./coverage/lcov.info
 deploy:
   provider: npm
   email: dev@adrianhaasler.com
