@@ -25,6 +25,7 @@
   "devDependencies": {
     "bluebird": "^3.0.5",
     "chai": "^3.4.1",
+    "codecov.io": "^0.1.6",
     "coveralls": "^2.11.4",
     "eslint-config-airbnb": "^1.0.0",
     "gulp": "^3.9.0",
