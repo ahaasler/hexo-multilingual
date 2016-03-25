@@ -9,4 +9,6 @@ if (typeof hexo !== 'undefined') {
   require('./lib/generator')(hexo);
   // Helpers
   require('./lib/helper')(hexo);
+  // Configuration
+  hexo.config.mutilingual = true;
 }
