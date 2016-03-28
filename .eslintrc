@@ -3,6 +3,7 @@
   "rules": {
     "strict": [2, "global"],
     "id-length": [2, {"exceptions": ["i", "j"]}],
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "no-param-reassign": [2, { "props": false }]
   }
 }
