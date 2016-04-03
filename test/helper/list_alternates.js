@@ -40,7 +40,7 @@ describe('list_alternates', function() {
     _list_alternates([], 'es')().should.eql('<ul class="alternate-list"></ul>');
   });
 
-  it('default - one', function() {
+  it('default - one post', function() {
     var alternates = [{
       title: 'one',
       lang: 'en',
@@ -52,5 +52,33 @@ describe('list_alternates', function() {
     }];
     _list_alternates(alternates, 'en')().should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link current" href="/one/" hreflang="en" title="one">en</a></li><li class="alternate-list-item"><a class="alternate-list-link " href="/uno/" hreflang="es" title="uno">es</a></li></ul>');
     _list_alternates(alternates, 'es')().should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/one/" hreflang="en" title="one">en</a></li><li class="alternate-list-item"><a class="alternate-list-link current" href="/uno/" hreflang="es" title="uno">es</a></li></ul>');
+  });
+
+  it('custom text - empty', function() {
+    var config = {
+      prepend: '<custom>',
+      append: '</custom>'
+    };
+    _list_alternates([], 'en')(config).should.eql('<custom></custom>');
+    _list_alternates([], 'es')(config).should.eql('<custom></custom>');
+  });
+
+  it('custom text - one post', function() {
+    var config = {
+      prepend: '<custom>',
+      append: '</custom>',
+      element: '<element url="%url" path="%path" lang="%lang">%title</element>'
+    };
+    var alternates = [{
+      title: 'one',
+      lang: 'en',
+      path: 'one/'
+    }, {
+      title: 'uno',
+      lang: 'es',
+      path: 'uno/'
+    }];
+    _list_alternates(alternates, 'en')(config).should.eql('<custom><element url="/one/" path="one/" lang="en">one</element><element url="/uno/" path="uno/" lang="es">uno</element></custom>');
+    _list_alternates(alternates, 'es')(config).should.eql('<custom><element url="/one/" path="one/" lang="en">one</element><element url="/uno/" path="uno/" lang="es">uno</element></custom>');
   });
 });
