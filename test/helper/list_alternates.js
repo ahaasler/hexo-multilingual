@@ -98,4 +98,56 @@ describe('list_alternates', function() {
     _list_alternates(alternates, 'en')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/uno/" hreflang="es" title="uno">es</a></li></ul>');
     _list_alternates(alternates, 'es')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/one/" hreflang="en" title="one">en</a></li></ul>');
   });
+
+  it('custom order - lang descending', function() {
+    var config = {
+      order: -1,
+    };
+    var alternates = [{
+      title: 'one',
+      lang: 'en',
+      path: 'one/'
+    }, {
+      title: 'uno',
+      lang: 'es',
+      path: 'uno/'
+    }];
+    _list_alternates(alternates, 'en')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/uno/" hreflang="es" title="uno">es</a></li><li class="alternate-list-item"><a class="alternate-list-link current" href="/one/" hreflang="en" title="one">en</a></li></ul>');
+    _list_alternates(alternates, 'es')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link current" href="/uno/" hreflang="es" title="uno">es</a></li><li class="alternate-list-item"><a class="alternate-list-link " href="/one/" hreflang="en" title="one">en</a></li></ul>');
+  });
+
+  it('custom order - title ascending', function() {
+    var config = {
+      orderby: 'title'
+    };
+    var alternates = [{
+      title: 'one',
+      lang: 'en',
+      path: 'one/'
+    }, {
+      title: 'uno',
+      lang: 'es',
+      path: 'uno/'
+    }];
+    _list_alternates(alternates, 'en')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link current" href="/one/" hreflang="en" title="one">en</a></li><li class="alternate-list-item"><a class="alternate-list-link " href="/uno/" hreflang="es" title="uno">es</a></li></ul>');
+    _list_alternates(alternates, 'es')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/one/" hreflang="en" title="one">en</a></li><li class="alternate-list-item"><a class="alternate-list-link current" href="/uno/" hreflang="es" title="uno">es</a></li></ul>');
+  });
+
+  it('custom order - title descending', function() {
+    var config = {
+      orderby: 'title',
+      order: -1
+    };
+    var alternates = [{
+      title: 'one',
+      lang: 'en',
+      path: 'one/'
+    }, {
+      title: 'uno',
+      lang: 'es',
+      path: 'uno/'
+    }];
+    _list_alternates(alternates, 'en')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link " href="/uno/" hreflang="es" title="uno">es</a></li><li class="alternate-list-item"><a class="alternate-list-link current" href="/one/" hreflang="en" title="one">en</a></li></ul>');
+    _list_alternates(alternates, 'es')(config).should.eql('<ul class="alternate-list"><li class="alternate-list-item"><a class="alternate-list-link current" href="/uno/" hreflang="es" title="uno">es</a></li><li class="alternate-list-item"><a class="alternate-list-link " href="/one/" hreflang="en" title="one">en</a></li></ul>');
+  });
 });
