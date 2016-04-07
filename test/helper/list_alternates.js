@@ -67,7 +67,7 @@ describe('list_alternates', function() {
     var config = {
       prepend: '<custom>',
       append: '</custom>',
-      element: '<element url="%url" path="%path" lang="%lang">%title</element>'
+      element: '<element url="%url" path="%path" lang="%lang" current="%isCurrent">%title</element>'
     };
     var alternates = [{
       title: 'one',
@@ -78,8 +78,8 @@ describe('list_alternates', function() {
       lang: 'es',
       path: 'uno/'
     }];
-    _list_alternates(alternates, 'en')(config).should.eql('<custom><element url="/one/" path="one/" lang="en">one</element><element url="/uno/" path="uno/" lang="es">uno</element></custom>');
-    _list_alternates(alternates, 'es')(config).should.eql('<custom><element url="/one/" path="one/" lang="en">one</element><element url="/uno/" path="uno/" lang="es">uno</element></custom>');
+    _list_alternates(alternates, 'en')(config).should.eql('<custom><element url="/one/" path="one/" lang="en" current="true">one</element><element url="/uno/" path="uno/" lang="es" current="false">uno</element></custom>');
+    _list_alternates(alternates, 'es')(config).should.eql('<custom><element url="/one/" path="one/" lang="en" current="false">one</element><element url="/uno/" path="uno/" lang="es" current="true">uno</element></custom>');
   });
 
   it('custom showCurrent - one post', function() {
