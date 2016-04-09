@@ -124,6 +124,28 @@ Example in a layout:
 </div>
 ```
 
+#### `list_alternates`
+
+Inserts a list of the page alternates.
+
+#### Parameters
+
+- `element`: HTML text for each alternate. Default: `<li class="alternate-list-item"><a class="alternate-list-link %currentTag" href="%url" hreflang="%lang" title="%title">%lang</a></li>`. Tokens:
+  - `%title`: alternate title.
+  - `%lang`: language code, e.g. `en`, `es`.
+  - `%path`: alternate absolute path.
+  - `%url`: alternate url.
+  - `%currentTag`: `current` if the alternate is the current one; nothing otherwise.
+  - `%isCurrent`: `true` if the alternate is the current one; `false` otherwise.
+  - `%currentIndex`: the index of the current alternate in the list, being `0` the first alternate.
+- `prepend`: HTML text that will be placed before all alternates. Default: `<ul class="alternate-list">`. Tokens:
+  - `%currentIndex`: the index of the current alternate in the list, being `0` the first alternate.
+- `append`: HTML text that will be placed after all alternates. Default: `</ul>`. Tokens:
+  - `%currentIndex`: the index of the current alternate in the list, being `0` the first alternate.
+- `showCurrent`: whether the current language should be included. Default: `true`.
+- `orderby`: order of the elements. `title`, `lang` or `path`. Default: `lang`.
+- `order`: sort of order. `1` for ascending; `-1` for descending. Default: `1`.
+
 License
 -------
 
