@@ -146,6 +146,20 @@ Inserts a list of the page alternates.
 - `orderby`: order of the elements. `title`, `lang` or `path`. Default: `lang`.
 - `order`: sort of order. `1` for ascending; `-1` for descending. Default: `1`.
 
+#### `list_head_alternates`
+
+Inserts a list of the page alternates for the HTML head. This is the same as
+using `list_alternates` with the following configuration:
+
+```
+{
+  element: '<link rel="alternate" href="%url" hreflang="%lang" />',
+  prepend: '',
+  append: '',
+  showCurrent: false
+}
+```
+
 License
 -------
 
