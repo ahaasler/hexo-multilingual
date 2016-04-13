@@ -1,6 +1,14 @@
 Changelog
 =========
 
+v0.5.0
+------
+
+**_April 13, 2015_**
+
+- Add multilingual flag: [\#14](https://github.com/ahaasler/hexo-multilingual/issues/14 "Themes should know multilingual behavior is enabled")
+- Add `list\_alternates` and `list\_head\_alternates` helpers: [\#16](https://github.com/ahaasler/hexo-multilingual/issues/16 "Add helper for alternate languages")
+
 v0.4.2
 ------
 
