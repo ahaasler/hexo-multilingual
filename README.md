@@ -105,6 +105,26 @@ hexo.extend.generator.register('test', function(locals) {
 Helpers
 -------
 
+The following helpers are available only if the Hexo site is using
+hexo-multilingual. This plugins sets a flag (`multilingual`) that can be
+checked by themes before using the helpers.
+
+Example with swig:
+
+```
+{% if config.multilingual %}
+  {{ list_head_alternates() }}
+{% endif %}
+```
+
+Example with EJS:
+
+```
+<% if (config.multilingual) { %>
+  <%- list_head_alternates() %>
+<% } %>
+```
+
 #### `_c`: Configuration locales
 
 This is the same as the `_c` function in util, but accessible from the theme
