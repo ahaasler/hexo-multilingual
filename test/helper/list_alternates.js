@@ -35,6 +35,11 @@ describe('list_alternates', function() {
     return fs.rmdir(baseDir);
   });
 
+  it('default - no alternates', function() {
+    _list_alternates(null, 'en')().should.eql('<ul class="alternate-list"></ul>');
+    _list_alternates(null, 'es')().should.eql('<ul class="alternate-list"></ul>');
+  });
+
   it('default - empty', function() {
     _list_alternates([], 'en')().should.eql('<ul class="alternate-list"></ul>');
     _list_alternates([], 'es')().should.eql('<ul class="alternate-list"></ul>');
