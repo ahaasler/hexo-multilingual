@@ -10,5 +10,5 @@ if (typeof hexo !== 'undefined') {
   // Helpers
   require('./lib/helper')(hexo);
   // Configuration
-  hexo.config.mutilingual = true;
+  hexo.config.multilingual = true;
 }
