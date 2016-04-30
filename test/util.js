@@ -79,7 +79,7 @@ describe('util', function() {
   });
 
   it('configuration: english - yaml', function() {
-    var enConfig = util.configuration('en', hexo.config, hexo.locals.toObject());
+    var enConfig = util.configuration('en', hexo.config, hexo.locals.toObject(), 'config');
     enConfig.title.should.eql('Hexo');
     enConfig.description.should.eql('English description');
     enConfig.complex.first.should.eql('default');
@@ -88,7 +88,7 @@ describe('util', function() {
   });
 
   it('configuration: english - yaml', function() {
-    var esConfig = util.configuration('es', hexo.config, hexo.locals.toObject());
+    var esConfig = util.configuration('es', hexo.config, hexo.locals.toObject(), 'config');
     esConfig.title.should.eql('Hexo');
     esConfig.description.should.eql('Descripción en español');
     esConfig.complex.first.should.eql('default');
@@ -97,7 +97,7 @@ describe('util', function() {
   });
 
   it('configuration: unknown language - yaml', function() {
-    var frConfig = util.configuration('fr', hexo.config, hexo.locals.toObject());
+    var frConfig = util.configuration('fr', hexo.config, hexo.locals.toObject(), 'config');
     frConfig.title.should.eql('Hexo');
     frConfig.description.should.eql('');
     frConfig.complex.first.should.eql('default');
