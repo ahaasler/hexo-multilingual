@@ -1,9 +1,11 @@
 {
   "extends": "airbnb/legacy",
   "rules": {
-    "strict": [2, "global"],
-    "id-length": [2, {"exceptions": ["i", "j"]}],
     "comma-dangle": [2, "never"],
-    "no-param-reassign": [2, { "props": false }]
+    "global-require": "warn",
+    "id-length": [2, {"exceptions": ["i", "j"]}],
+    "no-param-reassign": [2, { "props": false }],
+    "no-underscore-dangle": "warn",
+    "strict": [2, "global"]
   }
 }
