@@ -87,7 +87,16 @@ describe('util', function() {
     enConfig.complex.third.should.eql('new value');
   });
 
-  it('configuration: english - yaml', function() {
+  it('configuration: default type - yaml', function() {
+    var enConfig = util.configuration('en', hexo.config, hexo.locals.toObject());
+    enConfig.title.should.eql('Hexo');
+    enConfig.description.should.eql('English description');
+    enConfig.complex.first.should.eql('default');
+    enConfig.complex.second.should.eql('english');
+    enConfig.complex.third.should.eql('new value');
+  });
+
+  it('configuration: español - yaml', function() {
     var esConfig = util.configuration('es', hexo.config, hexo.locals.toObject(), 'config');
     esConfig.title.should.eql('Hexo');
     esConfig.description.should.eql('Descripción en español');
