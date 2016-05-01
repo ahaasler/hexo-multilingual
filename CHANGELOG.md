@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v0.6.0
+------
+
+**_May 1, 2015_**
+
+- Add localized theme configuration filter: [\#19](https://github.com/ahaasler/hexo-multilingual/issues/19 "Localize theme configuration")
+
 v0.5.0
 ------
 
