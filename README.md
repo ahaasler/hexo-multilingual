@@ -67,7 +67,7 @@ considered the same post in different languages.
 Filters
 -------
 
-### Configuration
+### Configuration and theme configuration
 
 Replaces the configuration in each page with the appropriate localized
 configuration values.
