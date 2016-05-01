@@ -48,6 +48,9 @@ archive_dir: archivo
 category_dir: categoria
 ```
 
+The theme configuration can also be localized with files named like
+`theme_<lang>.yml`.
+
 Generators
 ----------
 
