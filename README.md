@@ -186,6 +186,6 @@ using `list_alternates` with the following configuration:
 License
 -------
 
-This module is released under the [MIT License](http://opensource.org/licenses/MIT "The MIT License").
+This module is released under the [MIT License](https://ahaasler.mit-license.org/2015-2016/ "The MIT License").
 
 See [LICENSE](LICENSE "The MIT License").
